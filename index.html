@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skeuomorphic Minimalist Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Unbounded:wght@400;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-texture"></div>
+
+    <main class="clock-container">
+        <!-- The Outer Case -->
+        <div class="clock-case">
+            <!-- The Refined Screen Area -->
+            <div class="screen-inset">
+                <div class="screen-glass">
+                    <!-- Top Info Bar -->
+                    <div class="screen-top-bar">
+                        <span id="display-info" class="date-text">FEB 21, SAT</span>
+                        <div id="status-icons" class="status-icons">
+                            <span id="icon-timer" class="status-icon hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </span>
+                            <span id="icon-alarm" class="status-icon hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                </svg>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <!-- Main Digits -->
+                    <div id="display" class="display-text">
+                        <span id="digit-1">0</span>
+                        <span id="digit-2">0</span>
+                        <span class="digit-sep">:</span>
+                        <span id="digit-3">0</span>
+                        <span id="digit-4">0</span>
+                        <span class="digit-sep">:</span>
+                        <span id="digit-5">0</span>
+                        <span id="digit-6">0</span>
+                    </div>
+
+                    <!-- Slider / Needle Area -->
+                    <div class="screen-slider-area">
+                        <div class="tick-marks">
+                            <div class="ticks-track"></div>
+                        </div>
+                        <div id="seconds-needle" class="needle"></div>
+                    </div>
+
+                    <!-- Custom Input Overlay -->
+                    <div id="screen-input-overlay" class="input-overlay hidden">
+                        <div class="input-modal">
+                            <label for="alarm-input">SET ALARM (MINS)</label>
+                            <input type="number" id="alarm-input" min="1" max="1440" placeholder="0">
+                            <div class="input-buttons">
+                                <button class="btn-cancel" onclick="hideInputDialog()">CANCEL</button>
+                                <button class="btn-ok" onclick="submitAlarmTime()">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tactile Controls -->
+            <div class="knob-controls">
+                <div class="knob-group-left">
+                    <button id="btn-reset" class="knob knob-reset" onclick="handleReset()" title="Reset"></button>
+                    <div class="status-led"></div>
+                </div>
+
+                <div class="mode-toggles">
+                    <button id="mode-clock" class="mode-link active" onclick="setMode('clock')">CLOCK</button>
+                    <button id="mode-timer" class="mode-link" onclick="setMode('timer')">TIMER</button>
+                    <button id="mode-alarm" class="mode-link" onclick="setMode('alarm')">ALARM</button>
+                </div>
+
+                <div class="knob-group-right">
+                    <button id="btn-action" class="knob knob-start" onclick="handleAction()"
+                        title="Start/Stop"></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
