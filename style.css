@@ -47,10 +47,10 @@ body {
 .clock-case {
     /* Fixed internal dimensions to maintain aspect ratio perfectly */
     width: 740px;
-    height: 480px;
+    height: 493px;
     /* Explicit height to ensure aspect ratio during transform */
     min-width: 740px;
-    min-height: 480px;
+    min-height: 493px;
     flex-shrink: 0;
     /* Prevent flexbox from squishing the clock on mobile */
     /* Brushed Metal Body - subtle diagonal light sweep */
